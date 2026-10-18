@@ -1,0 +1,11 @@
+{
+  "retardo_inicial_s": 6,
+  "intentos": 8,
+  "pausa_entre_intentos_ms": 3000,
+  "hold_ms": 90,
+  "gap_ms": 160,
+  "modo": "pasos",
+  "factor_tiempo": 1.0,
+  "usar_vk": false,
+  "ventana_titulo": ""
+}

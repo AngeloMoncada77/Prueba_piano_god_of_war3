@@ -1,0 +1,94 @@
+============================================================
+ PIANO DE PANDORA AUTOMATICO - God of War 3 (PC, con teclado)
+============================================================
+
+Que es esto:
+  El puzzle del piano (el instrumento gigante de Pandora) es de RITMO:
+  las gemas con simbolos viajan por la banda y hay que apretar cada boton
+  JUSTO cuando pasan por la placa dorada central. A veces viajan dos
+  juntas (un "par") y hay que apretar las dos a la vez. Por eso es tan
+  dificil a mano.
+
+  Este programa ya tiene LA MELODIA COMPLETA cargada (25 toques, incluida
+  la frase final despues de la pausa, con los tiempos exactos medidos del
+  juego) y la toca por vos con milisegundos de precision (mucho mas preciso
+  que cualquier persona).
+
+  Tus teclas:  X = espacio | circulo = Shift izquierdo | cuadrado = O | triangulo = L
+  (el programa usa exactamente esas teclas)
+
+COMO USARLO (1 solo paso)
+-------------------------
+
+  Doble clic en:  2_reproducir_secuencia.bat
+
+  1. Te muestra la secuencia y dice "ARMADO" con un PITIDO. NO hay cuenta
+     regresiva: el programa no hace NADA hasta que vos aprietes N.
+  2. Estate parado en el instrumento, como para empezar el minijuego, y
+     pasate al juego.
+  3. Cuando quieras, apreta N (tu tecla de arranque del minijuego, que en
+     el juego es R1). SOLO esa tecla arranca la secuencia: si apretas
+     cualquier otra cosa, no pasa nada y sigue esperando. Esa pulsacion de
+     N es la senal: el programa la capta y desde ahi toca todo solo.
+  4. Si el juego rechaza el intento y se reinicia: espera unos segundos
+     (el programa avisa "Todo listo" con otro pitido), y apreta OTRA VEZ
+     N para el siguiente intento.
+  5. Repetir hasta que pase. ESC en cualquier momento = cancelar
+     (ese ESC no llega al juego).
+
+  OJO (es NORMAL): despues de apretar N, el juego se queda ~5.8 segundos en
+  la intro/espera (se acomoda la camara, se acomodan las gemas) ANTES de
+  que haga falta el primer toque. El programa espera EXACTAMENTE ese
+  tiempo (medido de videos del juego real): no esta colgado, esta
+  esperando. Paciencia y no toques nada hasta que el programa toque.
+
+  IMPORTANTE: durante cada intento no toques ninguna tecla que no sea la
+  de arranque (las pulsaciones durante la reproduccion se ignoran).
+
+SI ALGO NO FUNCIONA
+-------------------
+  - El juego tiene que estar en primer plano (ventana activa).
+  - Si "no pasa nada" (ni siquiera empieza el minijuego cuando apretas):
+    cerra todo, abre el .bat con clic derecho > "Ejecutar como
+    administrador", y proba de nuevo.
+  - Si el primer toque cae MUY TEMPRANO o MUY TARDE (lo ves en pantalla:
+    la gema todavia no llego / ya paso): usar 3_probar_retardo.bat, que
+    aprieta UNA SOLA VEZ la primera X para calibrar rapido. Se ajusta
+    "retardo_ms" en ritmo.json de a 300 ms y se repite hasta que la X
+    caiga justo cuando la gema llega a la zona. Despues volver a
+    2_reproducir_secuencia.bat (secuencia completa).
+  - Si los primeros toques caen bien pero se desincroniza mas adelante:
+    avisale a la IA para ajustar el "intervalos_ms".
+
+ritmo.json (se puede editar con cualquier Bloc de notas)
+--------------------------------------------------------
+  retardo_ms                Desde tu N hasta el primer toque, en
+                            milisegundos (5800 = 5,80 segundos: es la intro
+                            del juego + acomodo de las gemas, calibrado con
+                            videos reales). Si el primer toque cae temprano
+                            (la gema todavia no llego): subilo. Si cae tarde
+                            (ya paso): bajalo. De a 300.
+  intervalos_ms             Lista con la espera (en ms) entre cada toque y
+                            el siguiente: el ritmo EXACTO de la melodia,
+                            medido del video del juego (25 toques = 24
+                            esperas). Ya viene cargado y no hace falta
+                            tocarlo.
+  intervalo_ms              Plan B: se usa solo si falta intervalos_ms.
+  tecla_arranque            La tecla que arranca la secuencia (N). SOLO esa
+                            tecla hace reaccionar al programa: cualquier
+                            otra se ignora.
+  cuenta_regresiva_s        Segundos de espera al inicio (0 = sin cuenta:
+                            queda armado al toque).
+  hold_ms                   Cuanto dura apretada cada tecla (80).
+  espera_entre_intentos_s   Segundos de silencio tras cada intento (8).
+  max_intentos              Cuantos intentos automaticos por corrida (40).
+  usar_vk                   Plan B: true envia por codigo virtual en vez de
+                            scancode (casi nunca hace falta).
+  ventana_titulo            (opcional) parte del titulo de la ventana del
+                            juego para enfocarla sola, ejemplo: "God of War".
+  pasos                     La melodia completa (25 toques). Los pares van
+                            juntos, por ejemplo ["cuadrado", "x"].
+
+NOTA: los archivos que empiezan con _ (guion bajo) son parte interna del
+programa; no hace falta tocarlos. El paso 1 (grabar) ya no se usa: la
+secuencia ya viene cargada de fabrica.

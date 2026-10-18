@@ -1,0 +1,8 @@
+# Temporales y pruebas (no subir)
+__pycache__/
+*.pyc
+_video/
+*.mp4
+*.wav
+*.raw
+*.gray

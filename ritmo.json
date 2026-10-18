@@ -1,0 +1,32 @@
+{
+  "retardo_ms": 5800,
+  "intervalo_ms": 650,
+  "intervalos_ms": [1167, 1333, 1367, 1966, 700, 633, 700, 634, 1850, 670, 696, 600, 2000, 633, 666, 700, 700, 3090, 720, 690, 670, 760, 630, 600],
+  "hold_ms": 80,
+  "espera_entre_intentos_s": 8,
+  "max_intentos": 40,
+  "tecla_arranque": "n",
+  "cuenta_regresiva_s": 0,
+  "usar_vk": false,
+  "ventana_titulo": "",
+  "pasos": [
+    ["x"], ["x"], ["x"],
+    ["circulo"], ["cuadrado"], ["circulo"], ["cuadrado"],
+    ["x"], ["triangulo"],
+    ["cuadrado"],
+    ["circulo"], ["triangulo"],
+    ["cuadrado", "x"],
+    ["cuadrado"],
+    ["triangulo"],
+    ["cuadrado", "x"],
+    ["triangulo"],
+    ["triangulo", "circulo"],
+    ["triangulo", "circulo"],
+    ["x"],
+    ["cuadrado"],
+    ["cuadrado", "x"],
+    ["circulo"],
+    ["triangulo"],
+    ["triangulo", "circulo"]
+  ]
+}
